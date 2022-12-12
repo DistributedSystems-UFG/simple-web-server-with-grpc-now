@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.iotservice";
+option java_outer_classname = "IoTServiceProto";
+option objc_class_prefix = "TEMP";
+
+package temperatura_servico;
+
+service TemperaturaServidor{
+    rpc CadastrarTemperatura (Temperatura) returns (StatusReply) {}
+
+    rpc BuscarTemperaturaPorData (TemperaturasList) returns (StatusReply) {}
+
+    rpc BuscarTemperaturaPorLocalizacao (TemperaturasList) returns (StatusReply) {}
+}
+
+message StatusReply {
+  string status = 1;
+}
+
+message Temperatura{
+    string data = 1;
+    string localizacao = 2;
+    double temperatura = 3;
+}
+
+message TemperaturasList{
+    repeated Temperatura temperatura_dado = 1;
+}
