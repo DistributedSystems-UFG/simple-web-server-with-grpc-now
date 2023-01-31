@@ -10,13 +10,9 @@ package temperatura_servico;
 service TemperaturaServidor{
     rpc CadastrarTemperatura (Temperatura) returns (StatusReply) {}
 
-    rpc BuscarTemperaturaPorData (TemperaturasList) returns (StatusReply) {}
+    rpc BuscarTemperaturaPorData (DataTemperatura) returns (StatusReply) {}
 
-    rpc BuscarTemperaturaPorLocalizacao (TemperaturasList) returns (StatusReply) {}
-}
-
-message StatusReply {
-  string status = 1;
+    rpc BuscarTemperaturaPorLocalizacao (Localizacao) returns (TemperaturasList) {}
 }
 
 message Temperatura{
@@ -24,6 +20,20 @@ message Temperatura{
     string localizacao = 2;
     double temperatura = 3;
 }
+
+message StatusReply {
+  string status = 1;
+}
+
+message Localizacao{
+    string localizacao = 1;
+}
+
+message DataTemperatura{
+    string data = 1;
+}
+
+message EmptyMessage{}
 
 message TemperaturasList{
     repeated Temperatura temperatura_dado = 1;
