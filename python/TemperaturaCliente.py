@@ -31,9 +31,8 @@ def Cliente():
             response = stub.CadastrarTemperatura(
                 TemperaturaService_pb2.Temperatura(id=id, data=data, localizacao=localizacao, temperatura=temperatura))
             print('Cadastro: ' + str(response));
-            print('Teste')
         elif opcao == 2:
-            id_busca = input('Insira ID de busca: ')
+            id_busca = int(input('Insira ID de busca: '))
             response = stub.GetTemperaturaPorId(TemperaturaService_pb2.Id(id=id_busca))
             print('Busca por ID: \n' + str(response));
         elif opcao == 3:
