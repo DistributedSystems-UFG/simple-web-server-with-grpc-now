@@ -81,9 +81,9 @@ class TemperaturaServidor(TemperaturaService_pb2_grpc.TemperaturaServiceServicer
     def ListarTodasTemperaturas(self, request, context):
         list = TemperaturaService_pb2.TemperaturaList()
         for item in dados:
-            emp_data = TemperaturaService_pb2.Temperatura(id=item['id'], date=item['data'],
-                                                          location=item['localizacao'],
-                                                          temperature=item['temperature'])
+            emp_data = TemperaturaService_pb2.Temperatura(id=item['id'], data=item['data'],
+                                                          localizacao=item['localizacao'],
+                                                          temperatura=item['temperatura'])
             list.temperatura_dado.append(emp_data)
         return list
 

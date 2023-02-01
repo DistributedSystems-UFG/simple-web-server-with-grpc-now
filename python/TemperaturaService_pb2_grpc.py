@@ -34,6 +34,11 @@ class TemperaturaServiceStub(object):
                 request_serializer=TemperaturaService__pb2.Localizacao.SerializeToString,
                 response_deserializer=TemperaturaService__pb2.TemperaturaList.FromString,
                 )
+        self.ListarTodasTemperaturas = channel.unary_unary(
+                '/temperatura_service.TemperaturaService/ListarTodasTemperaturas',
+                request_serializer=TemperaturaService__pb2.EmptyMessage.SerializeToString,
+                response_deserializer=TemperaturaService__pb2.TemperaturaList.FromString,
+                )
 
 
 class TemperaturaServiceServicer(object):
@@ -63,6 +68,12 @@ class TemperaturaServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def ListarTodasTemperaturas(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_TemperaturaServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -84,6 +95,11 @@ def add_TemperaturaServiceServicer_to_server(servicer, server):
             'GetTemperaturaPorLocalizacao': grpc.unary_unary_rpc_method_handler(
                     servicer.GetTemperaturaPorLocalizacao,
                     request_deserializer=TemperaturaService__pb2.Localizacao.FromString,
+                    response_serializer=TemperaturaService__pb2.TemperaturaList.SerializeToString,
+            ),
+            'ListarTodasTemperaturas': grpc.unary_unary_rpc_method_handler(
+                    servicer.ListarTodasTemperaturas,
+                    request_deserializer=TemperaturaService__pb2.EmptyMessage.FromString,
                     response_serializer=TemperaturaService__pb2.TemperaturaList.SerializeToString,
             ),
     }
@@ -160,6 +176,23 @@ class TemperaturaService(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/temperatura_service.TemperaturaService/GetTemperaturaPorLocalizacao',
             TemperaturaService__pb2.Localizacao.SerializeToString,
+            TemperaturaService__pb2.TemperaturaList.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def ListarTodasTemperaturas(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/temperatura_service.TemperaturaService/ListarTodasTemperaturas',
+            TemperaturaService__pb2.EmptyMessage.SerializeToString,
             TemperaturaService__pb2.TemperaturaList.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

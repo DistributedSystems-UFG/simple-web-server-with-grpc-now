@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18TemperaturaService.proto\x12\x13temperatura_service\"Q\n\x0bTemperatura\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\x12\x13\n\x0blocalizacao\x18\x03 \x01(\t\x12\x13\n\x0btemperatura\x18\x04 \x01(\x01\"\x10\n\x02Id\x12\n\n\x02id\x18\x01 \x01(\r\"\x1d\n\x0bStatusReply\x12\x0e\n\x06status\x18\x01 \x01(\t\"\"\n\x0bLocalizacao\x12\x13\n\x0blocalizacao\x18\x01 \x01(\t\"\x14\n\x04\x44\x61ta\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\x0e\n\x0c\x45mptyMessage\"M\n\x0fTemperaturaList\x12:\n\x10temperatura_dado\x18\x01 \x03(\x0b\x32 .temperatura_service.Temperatura2\x8c\x03\n\x12TemperaturaService\x12\\\n\x14\x43\x61\x64\x61strarTemperatura\x12 .temperatura_service.Temperatura\x1a .temperatura_service.StatusReply\"\x00\x12R\n\x13GetTemperaturaPorId\x12\x17.temperatura_service.Id\x1a .temperatura_service.Temperatura\"\x00\x12Z\n\x15GetTemperaturaPorData\x12\x19.temperatura_service.Data\x1a$.temperatura_service.TemperaturaList\"\x00\x12h\n\x1cGetTemperaturaPorLocalizacao\x12 .temperatura_service.Localizacao\x1a$.temperatura_service.TemperaturaList\"\x00\x42\x37\n\x1bio.grpc.examples.iotserviceB\x0fIoTServiceProtoP\x01\xa2\x02\x04TEMPb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x18TemperaturaService.proto\x12\x13temperatura_service\"Q\n\x0bTemperatura\x12\n\n\x02id\x18\x01 \x01(\r\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\t\x12\x13\n\x0blocalizacao\x18\x03 \x01(\t\x12\x13\n\x0btemperatura\x18\x04 \x01(\x01\"\x10\n\x02Id\x12\n\n\x02id\x18\x01 \x01(\r\"\x1d\n\x0bStatusReply\x12\x0e\n\x06status\x18\x01 \x01(\t\"\"\n\x0bLocalizacao\x12\x13\n\x0blocalizacao\x18\x01 \x01(\t\"\x14\n\x04\x44\x61ta\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\x0e\n\x0c\x45mptyMessage\"M\n\x0fTemperaturaList\x12:\n\x10temperatura_dado\x18\x01 \x03(\x0b\x32 .temperatura_service.Temperatura2\xf2\x03\n\x12TemperaturaService\x12\\\n\x14\x43\x61\x64\x61strarTemperatura\x12 .temperatura_service.Temperatura\x1a .temperatura_service.StatusReply\"\x00\x12R\n\x13GetTemperaturaPorId\x12\x17.temperatura_service.Id\x1a .temperatura_service.Temperatura\"\x00\x12Z\n\x15GetTemperaturaPorData\x12\x19.temperatura_service.Data\x1a$.temperatura_service.TemperaturaList\"\x00\x12h\n\x1cGetTemperaturaPorLocalizacao\x12 .temperatura_service.Localizacao\x1a$.temperatura_service.TemperaturaList\"\x00\x12\x64\n\x17ListarTodasTemperaturas\x12!.temperatura_service.EmptyMessage\x1a$.temperatura_service.TemperaturaList\"\x00\x42\x37\n\x1bio.grpc.examples.iotserviceB\x0fIoTServiceProtoP\x01\xa2\x02\x04TEMPb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'TemperaturaService_pb2', globals())
@@ -36,5 +36,5 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _TEMPERATURALIST._serialized_start=255
   _TEMPERATURALIST._serialized_end=332
   _TEMPERATURASERVICE._serialized_start=335
-  _TEMPERATURASERVICE._serialized_end=731
+  _TEMPERATURASERVICE._serialized_end=833
 # @@protoc_insertion_point(module_scope)

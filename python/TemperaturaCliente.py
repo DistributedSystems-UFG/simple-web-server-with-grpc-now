@@ -20,32 +20,37 @@ def Cliente():
         print('### 5 - Listar todos os dados')
         print('### Qualquer opção diferente sairá do sitema')
         print('##################################')
-        opcao = input('Digite sua opção: ')
+        opcao = int(input('Digite sua opção: '))
 
-        if opcao is 1:
+        if opcao == 1:
             id = input("Digite a id: ")
             data = input("Digite a data: ")
             localizacao = input("Insira a localizacao: ")
             temperatura = input("insira a Temperatura: ")
 
-            response = stub.CadastrarTemperatura(TemperaturaService_pb2.Temperatura(data=data, localizacao=localizacao, temperatura=temperatura))
+            response = stub.CadastrarTemperatura(
+                TemperaturaService_pb2.Temperatura(id=id, data=data, localizacao=localizacao, temperatura=temperatura))
             print('Cadastro: ' + str(response));
-        elif opcao is 2:
-            response = stub.GetTemperaturaPorId(TemperaturaService_pb2.Id(id=1))
+            print('Teste')
+        elif opcao == 2:
+            id_busca = input('Insira ID de busca: ')
+            response = stub.GetTemperaturaPorId(TemperaturaService_pb2.Id(id=id))
             print('Busca por ID: \n' + str(response));
-        elif opcao is 3:
+        elif opcao == 3:
             data_busca = input('Insira data de busca: ')
-            response = stub.GetTemperaturaPorData(TemperaturaService_pb2.Data(data='25/12/2022'))
+            response = stub.GetTemperaturaPorData(TemperaturaService_pb2.Data(data=data_busca))
             print('Busca por Data: ' + str(response));
-        elif opcao is 4:
+        elif opcao == 4:
             localizacao_busca = input("Insira a localizacao de busca: ")
-            response = stub.getTemperaturaPorLocalizacao(TemperaturaService_pb2.Localizacao(localizacao_busca))
+            response = stub.GetTemperaturaPorLocalizacao(
+                TemperaturaService_pb2.Localizacao(localizacao=localizacao_busca))
             print('Busca por Localização: ' + str(response));
-        elif opcao is 5:
+        elif opcao == 5:
             response = stub.ListarTodasTemperaturas(TemperaturaService_pb2.EmptyMessage())
             print('Todas as temperaturas da lista: ' + str(response));
         else:
-            exit('até mais...')
+            exit('Até mais...')
+
 
 if __name__ == '__main__':
     logging.basicConfig()
