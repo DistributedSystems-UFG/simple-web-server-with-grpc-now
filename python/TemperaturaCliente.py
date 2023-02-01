@@ -23,7 +23,7 @@ def Cliente():
         opcao = int(input('Digite sua opção: '))
 
         if opcao == 1:
-            id = input("Digite a id: ")
+            id = int(input("Digite a id: "))
             data = input("Digite a data: ")
             localizacao = input("Insira a localizacao: ")
             temperatura = input("insira a Temperatura: ")
